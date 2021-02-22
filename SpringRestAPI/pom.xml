@@ -8,7 +8,7 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>M14_ITAcademy</groupId>
+	<groupId>com.Java_M14</groupId>
 	<artifactId>SpringRestAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringRestAPI</name>

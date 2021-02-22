@@ -1,4 +1,4 @@
-package M14_ITAcademy.SpringRestAPI;
+package com.Java_M14.SpringRestAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

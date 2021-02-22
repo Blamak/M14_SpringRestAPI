@@ -1,4 +1,4 @@
-package M14_ITAcademy.SpringRestAPI;
+package com.Java_M14.SpringRestAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
