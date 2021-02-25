@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS Pictures(
   CONSTRAINT pictures_fk FOREIGN KEY (shop_id) REFERENCES Shop (shop_id)
 );
 
-INSERT INTO Shop (name) VALUES ('Gracia');
-INSERT INTO Shop (name) VALUES ('Sant Marti');
-INSERT INTO Shop (name) VALUES ('Eixample');
-INSERT INTO Shop (name) VALUES ('Horta');
-INSERT INTO Shop (name) VALUES ('Clot');
+INSERT INTO Shop (name,capacity) VALUES ('Gracia', 5000);
+INSERT INTO Shop (name,capacity) VALUES ('Sant Marti', 941);
+INSERT INTO Shop (name,capacity) VALUES ('Eixample', 498);
+INSERT INTO Shop (name,capacity) VALUES ('Horta',3500);
+INSERT INTO Shop (name,capacity) VALUES ('Clot', 200);
 
 INSERT INTO Pictures (title,author,shop_id) VALUES ('The Starry Night', 'Vincent van Gogh', 1);
 INSERT INTO Pictures (title,author,shop_id) VALUES ('Girl with a Pearl Earring','Johannes Vermeer',1);

@@ -19,9 +19,13 @@ public class Shop {
 	
 	@Column(name= "name")
 	private String name;
+
+	@Column(name= "capacity")
+	private int capacity;
 	
 	
 	//Getters & Setters
+
 
 	public Long getId() {
 		return id;
@@ -39,4 +43,11 @@ public class Shop {
 		this.name = name;
 	}
 	
+	public int getCapacity() {
+		return capacity;
+	}
+	
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
 }
