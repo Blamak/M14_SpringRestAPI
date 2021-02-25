@@ -1,44 +1,25 @@
 package com.Java_M14.SpringRestAPI.dto;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="shop")
+@Table(name="SHOP")
 public class Shop {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "shop_id")
 	private Long id;
 	
 	@Column(name= "name")
 	private String name;
 	
-	@OneToMany(mappedBy="shop")
-	private List<Picture> pictures;
-	
-	
-
-	// Constructors
-	public Shop() {
-
-	}
-
-	public Shop(Long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
 	
 	//Getters & Setters
 
@@ -57,15 +38,5 @@ public class Shop {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	
-//	public List<Picture> getPictures() {
-//		return pictures;
-//	}
-//
-//	public void setPictures(List<Picture> pictures) {
-//		this.pictures = pictures;
-//	}
-
 	
 }

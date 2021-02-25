@@ -1,9 +1,7 @@
 package com.Java_M14.SpringRestAPI.dto;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="pictures")
+@Table(name="PICTURES")
 public class Picture {
 	
 	@Id
@@ -28,20 +26,6 @@ public class Picture {
 	@ManyToOne
 	@JoinColumn(name="shop_id")
 	private Shop shop;
-	
-	
-	// Constructors
-	
-	public Picture() {
-		
-	}
-
-	public Picture(Long id, String name, String author, Shop shop) {
-		this.id = id;
-		this.title = name;
-		this.author = author;
-		this.shop = shop;
-	}
 	
 	
 	//Getters & Setters
