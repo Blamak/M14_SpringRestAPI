@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.Java_M14.SpringRestAPI.dto.Picture;
-import com.Java_M14.SpringRestAPI.dto.Shop;
 
 public interface IPictureService {
 	
