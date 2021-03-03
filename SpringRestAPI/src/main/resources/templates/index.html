@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<title>Document</title>
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/estilos.css"> -->
+	<script src='/js/readshops.js'></script>
+	<script src='js/deletepictures.js'></script>
+	<!--
+	<script src='assets/js/checkasignaturas.js'></script>
+	-->
+	<script>
+		window.onload = () => {
+
+			readShops();
+
+
+
+
+			// listener del botón seleccionar
+			/*document.getElementById('seleccionar').onclick = () => {
+				actualizarAsignaturas(idalumno);
+			} */
+
+		}
+
+
+
+	</script>
+</head>
+
+<body>
+	<div class='wrapper'>
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<a class="nav-link" href="/">All Customers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/">Add New</a>
+			</li>
+		</ul>
+
+		<h3>Whitecollar Shops</h3>
+		<table id="shops">
+			<tr>
+				<th>id</th>
+				<th>Name</th>
+				<th>Capacity</th>
+			</tr>
+
+		</table><br>
+		<!--<a href="http://localhost:8181/shops/register-shop.html">Create new shop</a>-->
+		<a href="http://localhost:8181/register-shop.html">Create new shop</a>
+		<!--<input type="button" value="Create New Shop" id='newshop'>-->
+
+		<br><br>
+
+		<!-- The Modal -->
+		<div class="modal fade" id="delete-modal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Delete!</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" id="model-cancel-btn" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-danger" id="model-delete-btn">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- <a href="menu.php">Volver a menu</a> -->
+	</div><br>
+</body>
+
+</html>

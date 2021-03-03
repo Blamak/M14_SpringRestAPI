@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register new user</title>
+<script src="js/registershop.js"></script>
+<script>
+	window.onload = function() {
+		// activar listener del botón alta
+		document.getElementById('create').onclick = registerShop;
+	}
+</script>
+</head>
+<body>
+	<div>
+		<h2>REGISTER USER</h2>	
+		<br>
+		<form id="form">
+			<label>Name: </label> <input type="text" name="name" id="name" /><br>
+			<label>Capacity: </label> <input type="text" name="capacity" id="capacity" /> 
+			<br> <br> <br> <br> 
+			<input type="button" id='create' value="Create user" />
+		</form>
+		<br> <br> 
+		<a href="http://localhost:8181">Back</a>
+	</div>
+</body>
+</html>

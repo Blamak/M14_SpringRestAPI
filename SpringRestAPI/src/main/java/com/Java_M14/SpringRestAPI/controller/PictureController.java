@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Java_M14.SpringRestAPI.dto.Picture;
@@ -33,8 +35,8 @@ public class PictureController {
 	}
 	
 	@DeleteMapping("/{id}/pictures") 
-	public void deleteAllPictures(@PathVariable Long id) {
-		pictureServiceImpl.deleteAllPictures(id);
+	public ResponseEntity<String> deleteAllPictures(@PathVariable Long id) {
+		return pictureServiceImpl.deleteAllPictures(id);
 	}
 
 }
