@@ -1,4 +1,4 @@
-// ALTA PRODUCTOS
+// ALTA TIENDA
 
 function registerShop() {
 	// recuperar los datos del formulario
@@ -34,7 +34,6 @@ function registerShop() {
 		},
 		body: JSON.stringify(data)
 	}
-
 
 	// enviar la peticion
 	fetch(url, params)
