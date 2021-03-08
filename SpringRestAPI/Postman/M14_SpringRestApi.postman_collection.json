@@ -115,7 +115,7 @@
 						"pictures"
 					]
 				},
-				"description": "list all the pictures of a shop"
+				"description": "list all the pictures of the shop with id=2"
 			},
 			"response": []
 		},
@@ -137,7 +137,7 @@
 						"pictures"
 					]
 				},
-				"description": "delete all the pictures from a shop"
+				"description": "delete all the pictures from shop with id=2"
 			},
 			"response": []
 		},
@@ -159,7 +159,7 @@
 						"pictures"
 					]
 				},
-				"description": "empty list of pictures after removing all from a shop"
+				"description": "empty list of pictures after removing all from shop with id=2"
 			},
 			"response": []
 		}

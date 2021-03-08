@@ -11,21 +11,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="SHOP")
 public class Shop {
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "shop_id")
 	private Long id;
-	
 	@Column(name= "name")
 	private String name;
-
 	@Column(name= "capacity")
 	private int capacity;
 	
 	
 	//Getters & Setters
-
 
 	public Long getId() {
 		return id;
