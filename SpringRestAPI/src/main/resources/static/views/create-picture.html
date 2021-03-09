@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register new picture</title>
+<script src="../js/create_picture.js"></script>
+<script>
+	window.onload = function() {
+		// activar listener del botón alta
+		document.getElementById('create').onclick = createPicture;
+	}
+</script>
+</head>
+<body>
+	<div>
+		<h2>ADD PICTURE TO SHOP</h2>	
+		<br>
+		<form id="form">
+			<label>Title: </label> <input type="text" id="title" /><br>
+			<label>Author: </label> <input type="text" id="author" /> 
+			<br> <br> <br> <br> 
+			<input type="button" id='create' value="Confirm" />
+		</form>
+		<br> <br> 
+		<a href="http://localhost:8181">Back</a>
+	</div>
+</body>
+</html>

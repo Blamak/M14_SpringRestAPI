@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Register new user</title>
-<script src="js/registershop.js"></script>
+<script src="../js/create_shop.js"></script>
 <script>
 	window.onload = function() {
 		// activar listener del botón alta
-		document.getElementById('create').onclick = registerShop;
+		document.getElementById('create').onclick = createShop;
 	}
 </script>
 </head>
 <body>
 	<div>
-		<h2>REGISTER USER</h2>	
+		<h2>REGISTER NEW SHOP</h2>	
 		<br>
 		<form id="form">
-			<label>Name: </label> <input type="text" name="name" id="name" /><br>
-			<label>Capacity: </label> <input type="text" name="capacity" id="capacity" /> 
+			<label>Name: </label> <input type="text" id="name" /><br>
+			<label>Capacity: </label> <input type="text" id="capacity" /> 
 			<br> <br> <br> <br> 
-			<input type="button" id='create' value="Create user" />
+			<input type="button" id='create' value="Confirm" />
 		</form>
 		<br> <br> 
 		<a href="http://localhost:8181">Back</a>

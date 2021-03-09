@@ -1,18 +1,17 @@
-// ALTA TIENDA
-
-function registerShop() {
-	// recuperar los datos del formulario
-	let nameForm = document.getElementById('name').value.trim();
-	let capacityForm = document.getElementById('capacity').value.trim();
+// REGISTER NEW SHOP
+function createShop() {
+	// retrieve form data, name and capacity
+	const name = document.getElementById('name').value.trim();
+	const capacity = document.getElementById('capacity').value.trim();
 
 	try {
-		if (nameForm == '') {
+		if (name == '') {
 			throw 'Name field is mandatory'
 		}
-		if (capacityForm == '') {
+		if (capacity == '') {
 			throw `Introduce shop's capacity`;
 		}
-		if (isNaN(capacityForm)) {
+		if (isNaN(capacity)) {
 			throw `Capacity must be a number`;
 		}
 	} catch (error) {
@@ -20,14 +19,14 @@ function registerShop() {
 		return;
 	}
 
-	let data = {
-		name: nameForm,
-		capacity: capacityForm
+	const data = {
+		name: name,
+		capacity: capacity
 	};
 
-	let url = '/shops/save';
+	const url = '/shops/save';
 
-	let params = {
+	const params = {
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json;charset=utf-8'
@@ -37,8 +36,7 @@ function registerShop() {
 
 	// enviar la peticion
 	fetch(url, params)
-		.then((response) => {
-			//console.log(response.capacity)
+		.then(response => {
 			return response.json()
 		})
 		.then(() => {
