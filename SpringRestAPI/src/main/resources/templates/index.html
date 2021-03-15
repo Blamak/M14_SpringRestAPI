@@ -1,48 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SHOPS</title>
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<title>Document</title>
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/estilos.css"> -->
 	<script src='/js/read_shops.js'></script>
 	<script src='js/delete_pictures.js'></script>
 	<script src='js/read_pictures.js'></script>
-	<!--
-	<script src='assets/js/checkasignaturas.js'></script>
-	-->
+	
 	<script>
 		window.onload = () => {
-
 			readShops();
 		}
-
-
-
 	</script>
+	
 </head>
 
 <body>
 	<br>
-	<div style="width: 50%; margin:auto" class='card"'>
-		<!--<ul class="nav nav-pills">
-			<li class="nav-item">
-				<a class="nav-link" href="/">List Shops</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/views/create-shop.html">Add New</a>
-			</li>
-		</ul>-->
+	<div class="main">
+		<!-- HEADER -->
 		<div class="card-header">
-			<h3 style="text-align: center;">Whitecollar Shops</h3>
+			<h3>Whitecollar Shops</h3>
 		</div>
 		<div class="card-body">
+			<!-- SHOPS TABLE -->
 			<table class="table table-sm table-bordered table-hover table-striped table-dark" id="shops">
 				<thead class="thead-light">
 					<tr>
@@ -50,40 +37,38 @@
 						<th style="width: 25%">Name</th>
 						<th style="width: 20%">Capacity</th>
 						<th colspan="2"></th>
-						
 					</tr>
 				</thead>
 			</table>
-		<button type="button" onclick="location.href='/views/create-shop.html'"
-			class="btn btn-primary btn-lg btn-block"><u>Register New Shop</u></button>
+			<!-- NEW SHOP BUTTON -->
+			<button type="button" onclick="location.href='/views/create-shop.html'"
+				class="btn btn-primary btn-lg btn-block">
+				Register New Shop
+			</button>
 		</div>
 
-
-
-
-
-
-		<!-- The Modal -->
+		<!-- CONFIRM DELETE MODAL-->
 		<div class="modal fade" id="delete-modal">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 
-					<!-- Modal Header -->
+					<!-- MODAL HEADER-->
 					<div class="modal-header">
 						<h4 class="modal-title">Delete!</h4>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 
-					<!-- Modal body -->
+					<!-- MODAL BODY -->
 					<div class="modal-body">
 					</div>
 
-					<!-- Modal footer -->
+					<!-- MODAL FOOTER -->
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" id="model-cancel-btn"
 							data-dismiss="modal">Cancel</button>
 						<button type="button" class="btn btn-danger" id="model-delete-btn">Delete</button>
 					</div>
+
 				</div>
 			</div>
 		</div>

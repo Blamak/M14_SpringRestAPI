@@ -1,35 +1,34 @@
 // REGISTER NEW PICTURE
 
 function createPicture() {
-	
+
 	// get shop id from url
 	const url = window.location.href;
-	const position = url.indexOf('?shopId'); // position of question mark in the url
-	const shopId = url.substring(position + 8) // slice url to get the shop's id
+	const idPosition = url.indexOf('?shopId'); // position of question mark in the url
+	const shopId = url.substring(idPosition + 8) // slice url to get the shop's id
 
 	// retrieve form data (title and author)
 	const title = document.getElementById('title').value.trim();
 	const author = document.getElementById('author').value.trim();
-
+	
+	// empty field error messages
 	try {
 		if (title == '') {
-			throw 'Name field is mandatory'
+			throw 'Title field is mandatory'
 		}
 		if (author == '') {
-			throw `Introduce shop's capacity`;
+			throw `Introduce artist name`;
 		}
 	} catch (error) {
 		alert(error);
 		return;
 	}
-
+	
+	// prepare and send request
 	const data = {
 		title: title,
 		author: author,
 	};
-
-	const urlRequest = `/shops/${shopId}/pictures`;
-
 	const params = {
 		method: 'post',
 		headers: {
@@ -37,14 +36,15 @@ function createPicture() {
 		},
 		body: JSON.stringify(data)
 	}
+	const urlRequest = `/shops/${shopId}/pictures`;
 
-	// enviar la peticion
 	fetch(urlRequest, params)
 		.then(response => {
 			return response.json()
 		})
 		.then(() => {
-			window.location.href = `http://localhost:8181/views/show-pictures.html?shopId=${shopId}`;
+			// back to previous page
+			history.go(-1);
 		})
 		.catch((error) => {
 			alert(error)

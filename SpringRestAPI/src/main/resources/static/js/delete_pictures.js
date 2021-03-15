@@ -1,4 +1,8 @@
+// DELETE ALL PICTURES FROM A SHOP
+
 function deletePictures(shopId) {
+
+	// add modal's main text message
 	const text = document.getElementsByClassName("modal-body");
 	text[0].innerText = "Delete all pictures from Shop with id = " + shopId + " ?";
 
@@ -18,17 +22,15 @@ function deletePictures(shopId) {
 
 		fetch(url, params)
 			.then(response => {
-				// hide delete button and change cancel button text
-
 				if (response.status == 200) { // success message
 					text[0].innerText = `Delete successfully all pictures from shop with id ${shopId}`;
-					
+
 					// change modal-footer buttons settings
 					document.getElementById('model-delete-btn').style.display = "none";
 					document.getElementById('model-cancel-btn').textContent = "Close";
-					
+
 				} else if (response.status == 400) { // empty shop case
-					text[0].innerText = `Shop with id number ${shopId} currently has no pictures`;
+					text[0].innerHTML = '<p class="font-weight-bold">' + `Shop with id number ${shopId} currently has no pictures` + '</p>';
 
 					// change modal-footer buttons settings
 					document.getElementById('model-delete-btn').style.display = "none";

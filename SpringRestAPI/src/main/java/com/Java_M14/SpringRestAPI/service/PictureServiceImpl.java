@@ -24,8 +24,8 @@ public class PictureServiceImpl implements IPictureService {
 	IShopDAO iShopDAO;
 
 	@Override
-	public List<Picture> listPictures(Long id) {
-		Optional<Shop> shop = iShopDAO.findById(id);
+	public List<Picture> listPictures(Long shopId) {
+		Optional<Shop> shop = iShopDAO.findById(shopId);
 		return iPictureDAO.findByShop(shop);
 	}
 
@@ -38,13 +38,15 @@ public class PictureServiceImpl implements IPictureService {
 		return iPictureDAO.save(newPicture);
 	}
 
+	/*
+	 * returns ResponseEntity to handle two different http status (success or empty shop)
+	 */
 	@Override
-	public ResponseEntity<String> deleteAllPictures(Long id) {
-		Optional<Shop> shop = iShopDAO.findById(id);
+	public ResponseEntity<String> deleteAllPictures(Long shopId) {
+		Optional<Shop> shop = iShopDAO.findById(shopId);
 		List<Picture> pictures = iPictureDAO.findByShop(shop);
 		
 		if (pictures.isEmpty()) {
-//			return new ResponseEntity<String>("EMpty", HttpStatus.BAD_REQUEST);
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		} else {
 			for (Picture picture : pictures) {

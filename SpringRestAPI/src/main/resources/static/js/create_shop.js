@@ -1,31 +1,39 @@
 // REGISTER NEW SHOP
-function createShop() {
-	// retrieve form data, name and capacity
-	const name = document.getElementById('name').value.trim();
-	const capacity = document.getElementById('capacity').value.trim();
 
+function createShop() {
+	// retrieve form data - name and capacity
+	const name = document.getElementById('name').value.trim();
+	const capacity = parseFloat(document.getElementById('capacity').value.trim()); // parseFloat() to allow and remove insignificant zeros
+
+	// handling form's error messages
 	try {
+		// empty-field cases
 		if (name == '') {
 			throw 'Name field is mandatory'
 		}
 		if (capacity == '') {
 			throw `Introduce shop's capacity`;
 		}
-		if (isNaN(capacity)) {
-			throw `Capacity must be a number`;
+
+		// case capacity not a number / with decimals / negative value
+		if (isNaN(capacity) || capacity % 1 != 0 || capacity < 0) {
+			throw `Capacity must be a positive integer number (no decimals)`;
+		}
+		
+		// establish maximum capacity
+		if (capacity > 100_000) {
+			throw 'Maximum capacity: 99.999'
 		}
 	} catch (error) {
 		alert(error);
 		return;
 	}
-
+	
+	// prepare and send request
 	const data = {
 		name: name,
 		capacity: capacity
 	};
-
-	const url = '/shops/save';
-
 	const params = {
 		method: 'post',
 		headers: {
@@ -33,13 +41,18 @@ function createShop() {
 		},
 		body: JSON.stringify(data)
 	}
+	const url = '/shops/';
 
-	// enviar la peticion
 	fetch(url, params)
 		.then(response => {
-			return response.json()
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw "error in ajax request";
+			}
 		})
 		.then(() => {
+			// redirect to index page 
 			window.location.href = 'http://localhost:8181/';
 		})
 		.catch((error) => {

@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Register new picture</title>
-<script src="../js/create_picture.js"></script>
-<script>
-	window.onload = function() {
-		// activar listener del botón alta
-		document.getElementById('create').onclick = createPicture;
-	}
-</script>
+	<meta charset="UTF-8">
+	<title>Register new picture</title>
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="../js/create_picture.js"></script>
+
+	<script>
+		window.onload = function () {
+			document.getElementById('submit').onclick = createPicture;
+		}
+	</script>
+
 </head>
+
 <body>
-	<div>
-		<h2>ADD PICTURE TO SHOP</h2>	
+	<br>
+	<div class="main">
+	<!-- HEADER -->
+		<div class="card-header">
+			<h3 class="form-signin-heading text-center">ADD NEW PICTURE</h3>
+		</div>
 		<br>
-		<form id="form">
-			<label>Title: </label> <input type="text" id="title" /><br>
-			<label>Author: </label> <input type="text" id="author" /> 
-			<br> <br> <br> <br> 
-			<input type="button" id='create' value="Confirm" />
-		</form>
-		<br> <br> 
-		<a href="http://localhost:8181">Back</a>
+		<!-- PICTURES TABLE -->
+		<div class="card-body mx-auto" style="background-color: cadetblue;width: 90%;">
+			<form role="form">
+				<div class="form-group">
+					<label for="name"><b>Title:</b></label>
+					<input type="text" class="form-control w-75" id="title" placeholder="Enter picture's title" required
+						autofocus>
+				</div>
+				<div class="form-group">
+					<label for="capacity"><b>Author:</b></label>
+					<input type="text" class="form-control w-50" id="author" placeholder="Enter artist's name" required>
+				</div><br>
+			</form>
+		</div>
+		<br>
+		<!-- FOOTER WITH 'SUBMIT' BUTTON & 'BACK' LINK -->
+		<div class="mx-auto" style="width: 90%;">
+			<input type="submit" id="submit" class="btn btn-lg btn-primary" value="Submit">
+			<br><br>
+			<a  href="javascript:history.back()">&lt;&lt; Back</a>
+			<br><br>
+		</div>
 	</div>
 </body>
+
 </html>
