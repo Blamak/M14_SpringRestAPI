@@ -53,7 +53,7 @@ function createShop() {
 		})
 		.then(() => {
 			// redirect to index page 
-			window.location.href = 'http://localhost:8181/';
+			window.location.href = 'http://localhost:9292/';
 		})
 		.catch((error) => {
 			alert(error)
