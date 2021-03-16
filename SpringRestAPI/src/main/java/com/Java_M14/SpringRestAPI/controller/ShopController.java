@@ -15,19 +15,18 @@ import com.Java_M14.SpringRestAPI.service.ShopServiceImpl;
 @RestController
 @RequestMapping("/shops")
 public class ShopController {
-	
+
 	@Autowired
 	ShopServiceImpl shopServiceImpl;
-	
+
 	@GetMapping("")
 	public List<Shop> listShops() {
 		return shopServiceImpl.listShops();
 	}
-	
+
 	@PostMapping("")
 	public Shop saveShop(@RequestBody Shop shop) {
 		return shopServiceImpl.saveShop(shop);
 	}
-	
-	
+
 }

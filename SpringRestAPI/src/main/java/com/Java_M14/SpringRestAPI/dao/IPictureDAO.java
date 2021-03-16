@@ -12,6 +12,4 @@ import com.Java_M14.SpringRestAPI.dto.Shop;
 public interface IPictureDAO extends JpaRepository<Picture, Long> {
 	
 	List<Picture> findByShop(Optional<Shop> shop);
-//			, Sort sort);
-
 }

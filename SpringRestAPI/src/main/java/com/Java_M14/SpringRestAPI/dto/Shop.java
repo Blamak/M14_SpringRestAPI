@@ -26,7 +26,6 @@ public class Shop {
 	
 	//Getters & Setters
 
-
 	public Long getId() {
 		return id;
 	}

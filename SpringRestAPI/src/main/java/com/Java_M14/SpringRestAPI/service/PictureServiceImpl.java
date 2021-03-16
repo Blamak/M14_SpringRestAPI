@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.Java_M14.SpringRestAPI.dao.IPictureDAO;
@@ -14,20 +16,19 @@ import com.Java_M14.SpringRestAPI.dto.Shop;
 
 @Service
 public class PictureServiceImpl implements IPictureService {
-	
+
 	@Autowired
 	IPictureDAO iPictureDAO;
-	
+
 	@Autowired
 	IShopDAO iShopDAO;
 
 	@Override
-	public List<Picture> listPictures(Long id) {
-		Optional<Shop> shop = iShopDAO.findById(id);
+	public List<Picture> listPictures(Long shopId) {
+		Optional<Shop> shop = iShopDAO.findById(shopId);
 		return iPictureDAO.findByShop(shop);
 	}
-	
-	
+
 	@Override
 	public Picture addPicture(Long shopId, Map<String, String> pictureInfo) {
 		Picture newPicture = new Picture();
@@ -37,17 +38,23 @@ public class PictureServiceImpl implements IPictureService {
 		return iPictureDAO.save(newPicture);
 	}
 
-
+	/*
+	 * returns ResponseEntity to handle two different http status (success or empty shop)
+	 */
 	@Override
-	public void deleteAllPictures(Long id) {
-		Optional<Shop> shop = iShopDAO.findById(id);
-		List <Picture> pictures = iPictureDAO.findByShop(shop);
-		for (Picture picture : pictures) {
-			iPictureDAO.delete(picture);
-		}
+	public ResponseEntity<String> deleteAllPictures(Long shopId) {
+		Optional<Shop> shop = iShopDAO.findById(shopId);
+		List<Picture> pictures = iPictureDAO.findByShop(shop);
 		
+		if (pictures.isEmpty()) {
+			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		} else {
+			for (Picture picture : pictures) {
+				iPictureDAO.delete(picture);
+			}
+			return new ResponseEntity<String>(HttpStatus.OK);
+		}
+
 	}
-
-
 
 }

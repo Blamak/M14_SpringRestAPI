@@ -29,7 +29,7 @@ public class Picture {
 	
 	
 	//Getters & Setters
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -61,6 +61,5 @@ public class Picture {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	
 
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Register new shop</title>
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="../js/create_shop.js"></script>
+	<script>
+		window.onload = function () {
+			document.getElementById('submit').onclick = createShop;
+		}
+	</script>
+</head>
+
+<body>
+	<br>
+	<div class="main">
+		
+		<!-- HEADER-->
+		<div class="card-header">
+			<h3 class="form-signin-heading text-center">REGISTER NEW SHOP</h3>
+		</div>
+		<br>
+		
+		<!-- REGISTER FORM -->
+		<div class="card-body mx-auto" style="background-color: cadetblue;width: 90%;">
+			<form role="form">
+				<div class="form-group">
+					<label for="name"><b>Name:</b></label>
+					<input type="text" class="form-control w-75" id="name" placeholder="Enter shop name" required
+						autofocus>
+				</div>
+				<div class="form-group">
+					<label for="capacity"><b>Capacity:</b></label>
+					<input type="text" class="form-control w-50" id="capacity" placeholder="Enter shop capacity"
+						required>
+				</div>
+				<br>
+			</form>
+		</div>
+		<br>
+		
+		<!-- SUBMIT BUTTON & BACK LINK-->
+		<div class="mx-auto" style="width: 90%;">
+			<input type="submit" id="submit" class="btn btn-lg btn-primary" value="Submit">
+			<br><br>
+			<a href="javascript:history.back()">&lt;&lt; Back</a>
+		</div>
+
+	</div>
+</body>
+
+</html>

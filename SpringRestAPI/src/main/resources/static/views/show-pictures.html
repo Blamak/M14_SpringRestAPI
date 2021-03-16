@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Shop pictures list</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src='../js/read_pictures.js'></script>
+	
+	<script>
+		window.onload = () => {
+
+			// Retrieve shop name from url and insert text to title
+			const url = window.location.href;
+			const namePosition = url.indexOf('&shopName');
+			const shopName = decodeURI(url.substring(namePosition + 10));
+			document.getElementById("title").innerHTML = `${shopName.italics()} pictures`;
+
+			// Retrieve shop id from url
+			const idPosition = url.indexOf('?shopId');
+			const shopId = url.substring(idPosition + 8, namePosition)
+
+			// add href attribute to new picture button
+			const newPictureLink = document.getElementById('newPictureLink');
+			newPictureLink.href = `/views/create-picture.html?shopId=${shopId}`;
+
+			// Build table
+			readPictures(shopId);
+		}
+	</script>
+	
+</head>
+<body>
+	<br>
+	<div class="main">
+		<!-- HEADER -->
+		<div class="card-header">
+			<h3 id="title"></h3>
+		</div>
+		<br>
+		<!-- TABLE -->
+		<div id="tableDiv" style="background-color: cadetblue; width: 90%; margin:auto" class="card-body">
+			<table id="pictures" class="table table-sm table-bordered table-striped table-dark">
+				<tbody>
+					<thead class="thead-light">
+						<tr>
+							<th style="width: 10%" scope="col">Id</th>
+							<th style="width: 35%" scope="col">Title</th>
+							<th style="width: 30%" scope="col">Author</th>
+						</tr>
+					</thead>
+				</tbody>
+			</table>
+		</div><br>
+		<!-- FOOTER WITH 'ADD' & 'BACK' BUTTONS -->
+		<div class="card-footer" style="width: 90%;margin:auto;">
+			<nav class="navbar navbar-expand-sm navbar-dark nav-pills justify-content-around">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a id="newPictureLink" class="nav-link active">Add new picture</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" href="http://localhost:9292">Back to shops list</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+			<br><br>
+	</div>
+</body>
+
+</html>
