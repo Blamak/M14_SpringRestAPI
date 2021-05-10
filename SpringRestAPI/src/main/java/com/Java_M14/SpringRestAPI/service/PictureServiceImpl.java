@@ -54,6 +54,7 @@ public class PictureServiceImpl implements IPictureService {
 			}
 			return new ResponseEntity<String>(HttpStatus.OK);
 		}
+		
 	}
 
 }
